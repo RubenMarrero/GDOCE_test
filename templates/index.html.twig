@@ -1,0 +1,11 @@
+{% extends('base.html.twig') %}
+{% block body %}
+    <form class="form-inline justify-content-center col-12 col-md-9 col-xl-6">
+        <div class="form-group">
+            <label for="input_number">Number to guess</label>
+            <input type="number" class="form-control" id="input_number" aria-describedby="numberHint" placeholder="Enter a number">
+            <small id="numberHint" class="form-text text-muted">shhh. This number is a secret <em>(or not).</em></small>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}

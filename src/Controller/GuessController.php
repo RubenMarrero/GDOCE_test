@@ -14,7 +14,7 @@ class GuessController extends AbstractController
      */
     public function index(): Response
     {
-        return new Response('<h1>Guess App</h1>'); 
+        return $this->render('index.html.twig'); 
     }
 
     /**
@@ -24,6 +24,8 @@ class GuessController extends AbstractController
      */
     public function guess(Request $request): Response
     {
-        return new Response($request->get('number')); 
+        return $this->render('guess.html.twig', [
+            'number'    =>  $request->get('number')
+        ]); 
     }
 }
