@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace App\Tests;
+namespace App\Tests\Utils;
 
 
 use \PHPUnit\Framework\TestCase;
 use App\Controller\GuessController;
-use \App\Utils\Numbers;
+use App\Utils\Numbers as Numbers;
 
 /**
  *
@@ -26,7 +26,7 @@ class GuessNumberTest extends TestCase
 	 public function testSiNumeroEntero() : void
 	{
 		$this->expectException("TypeError");
-	 	Numbers::Guess(2.5);
+		Numbers::Guess(2.5);
 	 }
 
 	public function testRangoValido() : void 

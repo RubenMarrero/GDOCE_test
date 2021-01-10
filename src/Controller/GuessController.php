@@ -17,7 +17,7 @@ class GuessController extends AbstractController
         return $this->render('index.html.twig'); 
     }
 
-    public function guess(Request $request): Response
+    public function guess_resource(Request $request): Response
     {
         $number = intval($request->get('number'));
         if( ! Numbers::number_in_range($number) ){

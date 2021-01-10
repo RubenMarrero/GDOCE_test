@@ -2,6 +2,6 @@ index:
    path: /
    controller: App\Controller\GuessController::index
 
-guess:
+guess_resource:
   path: /guess/{number?}
-  controller: App\Controller\GuessController::guess
+  controller: App\Controller\GuessController::guess_resource

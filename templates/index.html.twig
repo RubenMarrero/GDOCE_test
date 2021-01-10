@@ -1,11 +1,24 @@
 {% extends('base.html.twig') %}
 {% block body %}
-    <form class="form-inline justify-content-center col-12 col-md-9 col-xl-6">
+    <form id="guess_form" action="{{ path("guess_resource") }}" method="GET" class="form-inline justify-content-center col-12 col-md-9 col-xl-6">
         <div class="form-group">
             <label for="input_number">Number to guess</label>
-            <input type="number" class="form-control" id="input_number" aria-describedby="numberHint" placeholder="Enter a number">
+            <input id="input_number" type="number" class="form-control" id="input_number" aria-describedby="numberHint" placeholder="Enter a number">
             <small id="numberHint" class="form-text text-muted">shhh. This number is a secret <em>(or not).</em></small>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button id="submit" type="submit" class="btn btn-primary">Submit</button>
     </form>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    function formSubmit(event) {
+        form.action += `/${ input_number.value }`;
+        return true;
+    }
+
+    const form = document.getElementById('guess_form');
+    const input_number = document.getElementById('input_number');
+    form.addEventListener('submit', formSubmit);
+</script>
 {% endblock %}
