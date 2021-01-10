@@ -7,8 +7,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 class GuessController extends AbstractController
 {
+public static function Guess(int $number): int { return 2; }
     /**
      * @Route("/", name="guess_app")
      */

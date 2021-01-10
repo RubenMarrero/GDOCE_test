@@ -10,7 +10,7 @@ use App\Utils\Numbers as Numbers;
 /**
  *
  */ 
-class PruebaTest extends TestCase
+class GuessNumberTest extends TestCase
 {
 
 	public function testFrameworkConfigured() : void
@@ -21,24 +21,7 @@ class PruebaTest extends TestCase
 	public function setUp() : void
 	{
 		$this->secret_number = rand(Numbers::MIN_RANGE , Numbers::MAX_RANGE);
-		$this->wrong_number = $this->secret_number - 1;
 	}
-
-	public function testAdivinarNumero() : void
-	{
-		$this->markTestIncomplete(
-          'Mocked dummy test for now until. Doing tests skeleton first.'
-        );
-		$this->assertSame(
-			Numbers::Guess($this->secret_number),
-			$this->secret_number
-		);
-
-		$this->assertNotSame(
-			Numbers::Guess($this->secret_number),
-			$this->wrong_number
-		);
-	} 
 
 	public function testSiNumeroEntero() : void
 	{
@@ -48,6 +31,10 @@ class PruebaTest extends TestCase
 
 	public function testRangoValido() : void 
 	{
+		$this->assertIsInt(Numbers::MIN_RANGE);
+		$this->assertIsInt(Numbers::MAX_RANGE);
+		$this->assertIsInt(Numbers::OUT_OF_RANGE);
+		
 		$this->assertGreaterThan(Numbers::MIN_RANGE		, Numbers::MAX_RANGE);
 		$this->assertGreaterThan(Numbers::OUT_OF_RANGE	, Numbers::MIN_RANGE);
 		$this->assertGreaterThan(Numbers::OUT_OF_RANGE	, 0);
@@ -63,4 +50,20 @@ class PruebaTest extends TestCase
 		);
 	}
 
+	public function testAdivinarNumero() : void
+	{
+		$this->markTestIncomplete(
+          'Mocked dummy test for now until. Doing tests skeleton first.'
+		);
+
+		$this->assertSame(
+			Numbers::Guess($this->secret_number),
+			$this->secret_number
+		);
+
+		$this->assertNotSame(
+			Numbers::Guess($this->secret_number),
+			Numbers::OUT_OF_RANGE
+		);
+	} 
 }
