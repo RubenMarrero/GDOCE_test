@@ -22,13 +22,13 @@ class GuessControllerTest extends WebTestCase
         $this->assertSame(301, $this->client->getResponse()->getStatusCode());
 
         $this->client->request('GET', '/guess/s');
-        $this->assertEquals(301, $this->client->getResponse()->getStatusCode());
+        $this->assertSame(301, $this->client->getResponse()->getStatusCode());
 
         $this->client->request('GET', '/guess/0');
-        $this->assertEquals(301, $this->client->getResponse()->getStatusCode());
+        $this->assertSame(301, $this->client->getResponse()->getStatusCode());
 
         $this->client->request('GET', '/guess/1');
-        $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
+        $this->assertSame(200, $this->client->getResponse()->getStatusCode());
 
     }
 
